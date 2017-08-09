@@ -34,6 +34,8 @@ namespace Swashbuckle.Swagger.XmlComments
                     model.description = summaryNode.ExtractContent();
             }
 
+            if (model.properties == null) return;
+
             foreach (var entry in model.properties)
             {
                 var jsonProperty = context.JsonObjectContract.Properties[entry.Key];
